@@ -17,3 +17,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.h-full--12 {
+  height: calc(100% - theme('height.12'));
+}
+.h-full--m-4 {
+  height: calc(100% - theme('spacing.4'));
+}

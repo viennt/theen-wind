@@ -1,4 +1,3 @@
-export { initialSettingState } from './initial-state';
 
 export {
   defaultActionWithPayload,

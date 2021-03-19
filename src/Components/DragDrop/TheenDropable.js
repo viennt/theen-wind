@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import { connect } from 'react-redux';
+import Frame from 'react-frame-component';
 import { Switch, Route } from 'react-router-dom';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 import TheenColorPicker from '../ColorPicker/TheenColorPicker';
 import TheenBorderPicker from '../BorderPicker/TheenBorderPicker';
 import TheenStoreDraggable from './TheenStoreDraggable';
 import TheenEditorDraggable from './TheenEditorDraggable';
+import { VIEW_TYPES } from '../../constants';
 
 // a little function to help us with reordering the result
 const reorder = (list, startIndex, endIndex) => {
@@ -40,9 +45,6 @@ const move = (source, destination, droppableSource, droppableDestination) => {
   return result;
 };
 
-const getStoreClasses = isDraggingOver => `${isDraggingOver ? '' : ''} w-72 m-4`;
-const getEditorClasses = isDraggingOver => `${isDraggingOver ? '' : ''} flex-1 m-4 ml-0 bg-white rounded`;
-
 class TheenDropable extends Component {
   state = {
     items: [
@@ -52,8 +54,13 @@ class TheenDropable extends Component {
       { id: uuidv4(), block: 'StandardBanner'},
       { id: uuidv4(), block: 'StandardBanner'},
       { id: uuidv4(), block: 'StandardBanner'},
+      { id: uuidv4(), block: 'StandardBanner'},
+      { id: uuidv4(), block: 'StandardBanner'},
     ],
     selected: [
+      { id: uuidv4(), block: 'StandardHeader'},
+      { id: uuidv4(), block: 'StandardBanner'},
+      { id: uuidv4(), block: 'StandardFooter'},
     ]
   };
 
@@ -107,28 +114,40 @@ class TheenDropable extends Component {
   };
 
   render () {
-    const { renderStoreItem, renderEditorItem } = this.props;
+    const { renderStoreItem, renderCodeItem, renderEditorItem } = this.props;
+    const { reduxView } = this.props;
+
+    let mainClasses = ''
+    if (reduxView === VIEW_TYPES.PHONE) {
+      mainClasses = 'w-80 mx-auto'
+    } else if (reduxView === VIEW_TYPES.TABLET) {
+      mainClasses = 'w-2/3 mx-auto'
+    } else {
+      mainClasses = 'flex-1';
+    }
 
     return (
-      <div className="flex select-none">
+      <div className="flex h-screen select-none">
         <DragDropContext onDragEnd={this.onDragEnd}>
           <Droppable droppableId="storeDroppable" isDropDisabled>
-            {(provided, snapshot) => (
+            {provided => (
               <div
                 id="store-droppable"
                 ref={provided.innerRef}
-                className={getStoreClasses(snapshot.isDraggingOver)}>
+                className="w-72 h-full overflow-y-auto">
                 <Switch>
                   <Route path="/settings">
                      <TheenColorPicker />
                      <TheenBorderPicker />
                   </Route>
-                  <Route path="/package">
-                    {this.state.items.map((item, index) => (
-                      <TheenStoreDraggable key={item.id} item={item} index={index}>
-                        {renderStoreItem(item.block)}
-                      </TheenStoreDraggable>
-                    ))}
+                  <Route path="/library">
+                    <div className="p-4">
+                      {this.state.items.map((item, index) => (
+                        <TheenStoreDraggable key={item.id} item={item} index={index}>
+                          {renderStoreItem(item.block)}
+                        </TheenStoreDraggable>
+                      ))}
+                    </div>
                   </Route>
                   <Route path="/store">
                     <div>Store</div>
@@ -144,29 +163,70 @@ class TheenDropable extends Component {
             )}
           </Droppable>
 
-          <Droppable droppableId="editorDroppable">
-            {(provided, snapshot) => (
-              <div
-                id="editor-droppable"
-                ref={provided.innerRef}
-                className={getEditorClasses(snapshot.isDraggingOver)}
-                // style={{ fontFamily: 'muli, sans-serif' }}
-              >
-
-                {this.state.selected.map((item, index) => (
-                  <TheenEditorDraggable key={item.id} item={item} index={index}>
-                    {renderEditorItem(item.block)}
-                  </TheenEditorDraggable>
-                ))}
-                {provided.placeholder}
-
+          <div className={`${mainClasses} bg-white border-l border-solid border-gray-100 shadow-sm`}>
+            {/* CONTENT */}
+            <div className="h-full m-auto">
+              {/* Code */}
+              <div className={`w-full h-full overflow-auto ${reduxView === VIEW_TYPES.CODE ? '' : 'hidden'}`}>
+                <SyntaxHighlighter
+                  language="html" style={docco} showLineNumbers>
+                  {this.state.selected.map(item => renderCodeItem(item.block))}
+                </SyntaxHighlighter>
               </div>
-            )}
-          </Droppable>
+
+              {/* Editor */}
+              <Droppable droppableId="editorDroppable">
+                {provided => (
+                  <div
+                    id="editor-droppable"
+                    ref={provided.innerRef}
+                    className={`w-full h-full ${reduxView === VIEW_TYPES.EDITOR ? '' : 'hidden'}`}
+                    style={{ fontFamily: 'muli, sans-serif' }}
+                  >
+
+                    {this.state.selected.map((item, index) => (
+                      <TheenEditorDraggable key={item.id} item={item} index={index}>
+                        {renderEditorItem(item.block)}
+                      </TheenEditorDraggable>
+                    ))}
+                    {provided.placeholder}
+
+                  </div>
+                )}
+              </Droppable>
+
+              {/* Preview */}
+              <Frame
+                className={`w-full h-full ${reduxView === VIEW_TYPES.DESKTOP || reduxView === VIEW_TYPES.TABLET || reduxView === VIEW_TYPES.PHONE ? '' : 'hidden'}`}
+                head={
+                  <>
+                    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet" />
+                    <link href="https://use.typekit.net/kfz5jhb.css" rel="stylesheet" />
+                    {
+                      <style dangerouslySetInnerHTML={{__html:
+                        `body * {
+                          font-family: muli, sans-serif
+                        }`
+                      }}/>
+                    }
+                    <style>
+
+                    </style>
+                  </>
+                }>
+                {this.state.selected.map(item => renderEditorItem(item.block))}
+              </Frame>
+            </div>
+          </div>
         </DragDropContext>
       </div>
     );
   }
 }
 
-export default TheenDropable
+const mapStateToProps = state => ({
+  reduxView: state.settings.data.view,
+})
+const mapDispatchToProps = dispatch => ({
+})
+export default connect(mapStateToProps, mapDispatchToProps)(TheenDropable);

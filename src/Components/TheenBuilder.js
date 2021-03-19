@@ -33,7 +33,6 @@ const mapStateToProps = state => ({
   reduxColors: state.settings.data.colors,
   reduxBorders: state.settings.data.borders,
 })
-const mapDispatchToProps = () => {
-  return {}
-}
+const mapDispatchToProps = () => ({
+})
 export default connect(mapStateToProps, mapDispatchToProps)(TheenBuilder);

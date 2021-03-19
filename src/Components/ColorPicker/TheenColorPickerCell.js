@@ -8,7 +8,7 @@ function TheenColorPickerCell({ activeColor = {}, updatingSettings, color, opaci
   const active = activeColor.name === color && activeColor.normal === opacity;
 
   const settings = { name: color, normal: opacity, lighter: opacity - 100, darker: opacity + 100 };
-  const onClick = () => updatingSettings({ colors: { primary: settings }})
+  const onClick = () => updatingSettings({ colors: { primary: settings } })
 
   return (
     <TheenPickerCell

@@ -5,8 +5,8 @@ import TheenPickerCell from '../TheenPickerCell';
 import {updating} from "../../Stores/reducers/settingsStore";
 
 function TheenBorderPickerRounded({ activeRadius, updatingSettings }) {
-  const classNameActiveWrapper = `border-gray-200 bg-gray-50`
-  const classNameWrapper = 'grid grid-cols-7 gap-3 rounded transition-all p-2 mb-1 ' +
+  const classNameActiveWrapper = `border-gray-100 bg-gray-50`
+  const classNameWrapper = 'grid grid-cols-7 gap-3 transition-all p-2 ' +
     `border border-solid ${classNameActiveWrapper}`;
 
   const classNameLabel = `col-span-2 flex items-center justify-start text-black uppercase text-sm`
