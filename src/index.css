@@ -24,3 +24,10 @@ code {
 .h-full--m-4 {
   height: calc(100% - theme('spacing.4'));
 }
+
+.ReactVirtualized__Grid.ReactVirtualized__List {
+  outline: none!important;
+}
+.ReactVirtualized__Grid__innerScrollContainer {
+  overflow: auto!important;
+}

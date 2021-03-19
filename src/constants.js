@@ -1,7 +1,7 @@
 import { FiShoppingBag, FiLayers, FiSettings } from 'react-icons/fi';
 
 export const ROUTES = [
-  { label: 'Library', url: '/library', icon: <FiLayers/> },
+  { label: 'Library', url: '/', icon: <FiLayers/> },
   { label: 'Store', url: '/store', icon: <FiShoppingBag/> },
   { label: 'Settings', url: '/settings', icon: <FiSettings/> },
 ]

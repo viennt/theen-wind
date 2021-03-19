@@ -1,3 +1,4 @@
+import React, { PureComponent } from 'react';
 import handlebars from 'handlebars';
 import { connect } from 'react-redux';
 
@@ -16,17 +17,22 @@ handlebars.registerPartial(
     '{{radius.topLeft}} {{radius.topRight}} {{radius.bottomLeft}} {{radius.bottomRight}}'
 );
 
-function TheenBuilder({ template, settings, reduxColors, reduxBorders }) {
-  function createMarkup() {
-    const generator = handlebars.compile(template);
-    return {__html: generator({
-      ...settings.template,
-      colors: reduxColors,
-      borders: reduxBorders
-    })};
-  }
+class TheenBuilder extends PureComponent {
+  render() {
+    const { template, settings, reduxColors, reduxBorders } = this.props;
+    function createMarkup() {
+      const generator = handlebars.compile(template);
+      return {
+        __html: generator({
+          ...settings.template,
+          colors: reduxColors,
+          borders: reduxBorders
+        })
+      };
+    }
 
-  return <div dangerouslySetInnerHTML={createMarkup()} />;
+    return <div dangerouslySetInnerHTML={createMarkup()}/>;
+  }
 }
 
 const mapStateToProps = state => ({

@@ -1,30 +1,38 @@
-import React from "react";
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
 import TheenPickerCell from '../TheenPickerCell';
-import { updating } from '../../Stores/reducers/settingsStore';
+import {
+  getSettingPrimaryColorName,
+  getSettingPrimaryColorOpacity,
+  updating
+} from '../../Stores/reducers/settingsStore';
 
-function TheenColorPickerCell({ activeColor = {}, updatingSettings, color, opacity }) {
-  const active = activeColor.name === color && activeColor.normal === opacity;
+class TheenColorPickerCell extends PureComponent {
+  render() {
+    const { reduxColorName, reduxColorOpacity, color, opacity, updatingSettings } = this.props;
+    const active = reduxColorName === color && reduxColorOpacity === opacity;
 
-  const settings = { name: color, normal: opacity, lighter: opacity - 100, darker: opacity + 100 };
-  const onClick = () => updatingSettings({ colors: { primary: settings } })
+    const settings = { name: color, normal: opacity, lighter: opacity - 100, darker: opacity + 100 };
+    const onClick = () => updatingSettings({colors: {primary: settings}})
 
-  return (
-    <TheenPickerCell
-      hideLabel
-      label={opacity}
-      active={active}
-      color={color}
-      opacity={opacity}
-      activeOpacity={opacity}
-      onClick={onClick}
-    />
-  );
+    return (
+      <TheenPickerCell
+        hideLabel
+        label={opacity}
+        active={active}
+        color={color}
+        opacity={opacity}
+        activeOpacity={opacity}
+        onClick={onClick}
+      />
+    );
+  }
 }
 
 const mapStateToProps = state => ({
-  activeColor: state.settings.data.colors?.primary,
+  reduxColorName: getSettingPrimaryColorName(state),
+  reduxColorOpacity: getSettingPrimaryColorOpacity(state),
 })
 const mapDispatchToProps = dispatch => ({
   updatingSettings: (settings) => dispatch(updating(settings)),

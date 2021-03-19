@@ -25,6 +25,10 @@ export const initialState = {
   },
 };
 
+/** SELECTORS */
+export const getSettingView = state => state.settings.data.view;
+export const getSettingPrimaryColorName = state => state.settings.data.colors?.primary.name;
+export const getSettingPrimaryColorOpacity = state => state.settings.data.colors?.primary.normal;
 
 /** UPDATE ACTION TYPES & ACTIONS */
 export const [UPDATING] = callingApiTypes(ENTITY, 'update');
