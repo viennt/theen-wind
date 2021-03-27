@@ -15,7 +15,7 @@ import TheenBorderPicker from '../BorderPicker/TheenBorderPicker';
 import TheenLibraryDraggable from './TheenLibraryDraggable';
 import TheenLibraryDroppable from './TheenLibraryDroppable';
 
-import { moveDnD, reorderDnD } from '../../helpers';
+import { moveDnD, reorderDnD, removeDnD } from '../../helpers';
 
 class TheenDroppable extends PureComponent {
   Id2List = {
@@ -29,13 +29,17 @@ class TheenDroppable extends PureComponent {
     const { updatingEditor } = this.props;
     const { source, destination } = result;
 
+    let editorItems = '';
     // dropped outside the list
     if (!destination) {
-      return;
-    }
+      editorItems = removeDnD(
+        this.getReduxList(source.droppableId),
+        source,
+      );
+      updatingEditor(editorItems)
+      return null;
 
-    let editorItems = '';
-    if (source.droppableId === destination.droppableId) {
+    } else if (source.droppableId === destination.droppableId) {
       editorItems = reorderDnD(
         this.getReduxList(source.droppableId),
         source.index,

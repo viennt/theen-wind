@@ -1,30 +1,15 @@
 import React, { PureComponent } from 'react';
-import handlebars from 'handlebars';
 import { connect } from 'react-redux';
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { docco } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+import { github } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 import virtualizedRenderer from 'react-syntax-highlighter-virtualized-renderer';
 
-import { getSettingView } from '../../../Stores/reducers/settingsStore';
+import { getSettingView, getSettingColors, getSettingBorders } from '../../../Stores/reducers/settingsStore';
 import { getEditorItems } from '../../../Stores/reducers/editorStore';
 
 import { templates } from '../../../Templates';
 import { VIEW_TYPES } from '../../../constants';
-
-handlebars.registerHelper('ifE', function(arg1, arg2, options) {
-  return (arg1 === arg2) ? options.fn(this) : options.inverse(this);
-});
-handlebars.registerPartial(
-  'color',
-  '{{color.name}}-' +
-  '{{#ifE opacity "normal"}}{{color.normal}}{{/ifE}}' +
-  '{{#ifE opacity "lighter"}}{{color.lighter}}{{/ifE}}' +
-  '{{#ifE opacity "darker"}}{{color.darker}}{{/ifE}}'
-);
-handlebars.registerPartial(
-  'rounded',
-  '{{radius.topLeft}} {{radius.topRight}} {{radius.bottomLeft}} {{radius.bottomRight}}'
-);
+import { hbs } from '../../../helpers';
 
 class TheenViewCode extends PureComponent {
   render() {
@@ -32,11 +17,12 @@ class TheenViewCode extends PureComponent {
 
     if (reduxView === VIEW_TYPES.CODE) {
       return (
-        <div className="h-full text-xs px-1 bg-white">
+        <div className="w-full h-full text-xs p-2 bg-gray-200 border border-solid border-gray-300">
+        <div className="w-full h-full bg-white rounded border border-solid border-gray-300 overflow-hidden">
           <SyntaxHighlighter
             className="h-full"
             language="htmlbars"
-            style={docco}
+            style={github}
             showLineNumbers
             showInlineLineNumbers
             renderer={virtualizedRenderer()}
@@ -45,10 +31,10 @@ class TheenViewCode extends PureComponent {
           >
             {reduxEditorItems
               .map(item => {
-                const generator = handlebars.compile(templates[item.block].template);
+                const generator = hbs.compile(templates[item.block].template);
                 return generator(
                   {
-                    ...templates[item.block].settings.template,
+                    ...templates[item.block].props,
                     colors: reduxColors,
                     borders: reduxBorders
                   }
@@ -56,6 +42,7 @@ class TheenViewCode extends PureComponent {
               })
               .reduce((accumulator, currentValue) =>  `${accumulator}\n${currentValue}`)}
           </SyntaxHighlighter>
+        </div>
         </div>
       );
     } else {
@@ -67,7 +54,7 @@ class TheenViewCode extends PureComponent {
 const mapStateToProps = state => ({
   reduxView: getSettingView(state),
   reduxEditorItems: getEditorItems(state),
-  reduxColors: state.settings.data.colors,
-  reduxBorders: state.settings.data.borders,
+  reduxColors: getSettingColors(state),
+  reduxBorders: getSettingBorders(state),
 })
 export default connect(mapStateToProps)(TheenViewCode);

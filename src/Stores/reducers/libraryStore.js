@@ -6,7 +6,10 @@ const ENTITY = 'LIBRARY';
 export const initialState = {
   data: [
     { id: uuidv4(), block: 'StandardHeader'},
+    { id: uuidv4(), block: 'StandardHeader02'},
     { id: uuidv4(), block: 'StandardBanner'},
+    { id: uuidv4(), block: 'StandardContent'},
+    { id: uuidv4(), block: 'StandardPricing'},
     { id: uuidv4(), block: 'StandardFooter'},
   ],
 };

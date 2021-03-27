@@ -18,7 +18,7 @@ class TheenMainContent extends PureComponent {
     }
 
     return (
-      <div className={`${mainClasses} transition-all bg-white border-l border-solid border-gray-100 shadow-sm`}>
+      <div className={`${mainClasses} bg-white border-l border-solid border-gray-100 shadow-sm`}>
         <div className="h-full m-auto">
           {children}
         </div>

@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
+import { getSettingBorderRadius, updating } from '../../Stores/reducers/settingsStore';
 import TheenPickerCell from '../TheenPickerCell';
-import { updating } from '../../Stores/reducers/settingsStore';
 
 class TheenBorderPickerRounded extends PureComponent {
   render() {
@@ -45,7 +45,7 @@ class TheenBorderPickerRounded extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  activeRadius: state.settings.data.borders?.radius,
+  activeRadius: getSettingBorderRadius(state),
 })
 const mapDispatchToProps = dispatch => ({
   updatingSettings: (settings) => dispatch(updating(settings)),

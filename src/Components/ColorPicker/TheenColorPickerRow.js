@@ -4,6 +4,13 @@ import { connect } from 'react-redux';
 import { getSettingPrimaryColorName } from '../../Stores/reducers/settingsStore';
 
 class TheenColorPickerRow extends PureComponent {
+  shouldComponentUpdate(nextProps, nextState) {
+    const { reduxColorName, color } = this.props;
+    const oldActive = reduxColorName === color;
+    const newActive = nextProps.reduxColorName === color;
+    return oldActive || newActive;
+  }
+
   render() {
     const { reduxColorName, color, children } = this.props;
     const active = reduxColorName === color;

@@ -27,6 +27,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
+    "build-css": "NODE_ENV=production npx tailwindcss-cli@latest build ./src/index.css -o ./public/css/tailwind.css",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -48,10 +49,10 @@
     ]
   },
   "devDependencies": {
-    "@tailwindcss/postcss7-compat": "^2.0.3",
+    "@tailwindcss/postcss7-compat": "^2.0.4",
     "autoprefixer": "^9.8.6",
     "craco-raw-loader": "^1.0.1",
     "postcss": "^7.0.35",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3"
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.4"
   }
 }

@@ -1,7 +1,7 @@
 import template from './standard.hbs';
 
 const settings = {
-  review: '/images/blocks/footer-01.png',
+  review: '/images/blocks/content-01.png',
   template,
   props: {}
 };

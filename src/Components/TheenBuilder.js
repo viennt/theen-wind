@@ -1,43 +1,31 @@
 import React, { PureComponent } from 'react';
-import handlebars from 'handlebars';
 import { connect } from 'react-redux';
+import { getSettingColors, getSettingBorders } from '../Stores/reducers/settingsStore';
 
-handlebars.registerHelper('ifE', function(arg1, arg2, options) {
-  return (arg1 === arg2) ? options.fn(this) : options.inverse(this);
-});
-handlebars.registerPartial(
-  'color',
-  '{{color.name}}-' +
-  '{{#ifE opacity "normal"}}{{color.normal}}{{/ifE}}' +
-  '{{#ifE opacity "lighter"}}{{color.lighter}}{{/ifE}}' +
-  '{{#ifE opacity "darker"}}{{color.darker}}{{/ifE}}'
-);
-handlebars.registerPartial(
-  'rounded',
-    '{{radius.topLeft}} {{radius.topRight}} {{radius.bottomLeft}} {{radius.bottomRight}}'
-);
+import { hbs } from '../helpers';
 
 class TheenBuilder extends PureComponent {
   render() {
-    const { template, settings, reduxColors, reduxBorders } = this.props;
+    const { template, props, reduxColors, reduxBorders } = this.props;
     function createMarkup() {
-      const generator = handlebars.compile(template);
+      const generator = hbs.compile(template);
       return {
         __html: generator({
-          ...settings.template,
+          ...props,
           colors: reduxColors,
           borders: reduxBorders
         })
       };
     }
 
-    return <div dangerouslySetInnerHTML={createMarkup()}/>;
+    // className="border-b border-solid border-gray-200"
+    return <div dangerouslySetInnerHTML={createMarkup()} />;
   }
 }
 
 const mapStateToProps = state => ({
-  reduxColors: state.settings.data.colors,
-  reduxBorders: state.settings.data.borders,
+  reduxColors: getSettingColors(state),
+  reduxBorders: getSettingBorders(state),
 })
 const mapDispatchToProps = () => ({
 })

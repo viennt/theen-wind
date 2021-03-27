@@ -8,7 +8,9 @@ class TheenMainContent extends PureComponent {
   render() {
     const { reduxView, children } = this.props;
 
-    if (reduxView === VIEW_TYPES.EDITOR) {
+    // TODO: Use this later on
+    // if (reduxView === VIEW_TYPES.EDITOR) {
+    if (1) {
       return (
         <div className="w-72 h-full overflow-y-auto">
           {children}

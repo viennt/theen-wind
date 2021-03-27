@@ -9,6 +9,13 @@ import {
 } from '../../Stores/reducers/settingsStore';
 
 class TheenColorPickerCell extends PureComponent {
+  shouldComponentUpdate(nextProps, nextState) {
+    const { reduxColorName, reduxColorOpacity, color, opacity } = this.props;
+    const oldActive = reduxColorName === color && reduxColorOpacity === opacity;
+    const newActive = nextProps.reduxColorName === color && nextProps.reduxColorOpacity === opacity;
+    return oldActive || newActive;
+  }
+
   render() {
     const { reduxColorName, reduxColorOpacity, color, opacity, updatingSettings } = this.props;
     const active = reduxColorName === color && reduxColorOpacity === opacity;

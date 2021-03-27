@@ -10,9 +10,10 @@ class TheenViewItem extends PureComponent {
     const onClick = () => updatingSettings({view})
 
     return (
-      <li className={`${activeClasses} flex items-center justify-center h-8 text-md`}
-          onClick={onClick}
-          {...props}>
+      <li
+        className={`${activeClasses} flex items-center justify-center h-8 text-md`}
+        onClick={onClick}
+        {...props}>
         <div
           className={`flex items-center justify-center transition-all h-6 w-full cursor-pointer pl-0.5 border-r-2 border-solid border-transparent`}>
           {icon}

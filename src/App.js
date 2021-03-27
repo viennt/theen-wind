@@ -21,7 +21,7 @@ class App extends PureComponent {
               <div className="rounded overflow-hidden">
                 <img alt="content"
                      className="object-cover object-center h-full w-full"
-                     src={templates[block].settings.review} />
+                     src={templates[block].review} />
               </div>
             )}
             renderRightSide={() => (

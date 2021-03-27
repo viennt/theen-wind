@@ -1,7 +1,7 @@
-import template from './standard.hbs';
+import template from './standard-02.hbs';
 
 const settings = {
-  review: '/images/blocks/header-01.png',
+  review: '/images/blocks/header-02.png',
   template,
   props: {
     mainMenus: [

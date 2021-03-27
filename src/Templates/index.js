@@ -1,27 +1,21 @@
-import standardHeaderTemplate from './Headers/standard.hbs';
 import standardHeaderSettings from './Headers/standard.settings';
-import standardBannerTemplate from './Banners/standard.hbs';
+import standardHeader02Settings from './Headers/standard-02.settings';
+
 import standardBannerSettings from './Banners/standard.settings';
-import standardFooterTemplate from './Footers/standard.hbs';
+
+import standardContentSettings from './Contents/standard.settings';
+import standardPricingSettings from './Pricings/standard.settings';
+
 import standardFooterSettings from './Footers/standard.settings';
-import waveDividerTemplate from './Dividers/wave.hbs';
+
 import waveDividerSettings from './Dividers/wave.settings';
 
 export const templates = {
-  'StandardHeader': {
-    template: standardHeaderTemplate,
-    settings: standardHeaderSettings,
-  },
-  'StandardBanner': {
-    template: standardBannerTemplate,
-    settings: standardBannerSettings,
-  },
-  'StandardFooter': {
-    template: standardFooterTemplate,
-    settings: standardFooterSettings,
-  },
-  'WaveDivider': {
-    template: waveDividerTemplate,
-    settings: waveDividerSettings,
-  }
+  'StandardHeader': standardHeaderSettings,
+  'StandardHeader02': standardHeader02Settings,
+  'StandardBanner': standardBannerSettings,
+  'StandardContent': standardContentSettings,
+  'StandardPricing': standardPricingSettings,
+  'StandardFooter': standardFooterSettings,
+  'WaveDivider': waveDividerSettings
 }

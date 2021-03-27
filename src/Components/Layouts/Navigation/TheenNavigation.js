@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
-import { FiMonitor, FiCode, FiServer, FiSmartphone, FiTablet } from 'react-icons/fi';
+import { FiMonitor, FiCode, FiSmartphone, FiTablet } from 'react-icons/fi';
+// FiServer
 
 import TheenNavLogo from './TheenNavLogo';
 import TheenNavItem from './TheenNavItem';
@@ -12,15 +13,13 @@ class TheenNavigation extends PureComponent {
   render() {
     return (
       <div className="flex h-full flex-col justify-between">
-        <div className="">
-          <ul>
-            <TheenNavLogo />
-            {ROUTES.map(route => <TheenNavItem key={route.url} {...route} />)}
-          </ul>
-        </div>
+        <ul>
+          <TheenNavLogo />
+          {ROUTES.map(route => <TheenNavItem key={route.url} {...route} />)}
+        </ul>
         <div className="py-4">
           <ul>
-            <TheenViewItem view={VIEW_TYPES.EDITOR} icon={<FiServer/>}/>
+            {/* <TheenViewItem view={VIEW_TYPES.EDITOR} icon={<FiServer/>}/> */}
             <TheenViewSeparator/>
             <TheenViewItem view={VIEW_TYPES.CODE} icon={<FiCode/>}/>
             <TheenViewItem view={VIEW_TYPES.DESKTOP} icon={<FiMonitor/>}/>

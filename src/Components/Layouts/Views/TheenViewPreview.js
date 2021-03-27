@@ -16,24 +16,26 @@ class TheenViewPreview extends PureComponent {
 
     if (reduxView === VIEW_TYPES.DESKTOP || reduxView === VIEW_TYPES.TABLET || reduxView === VIEW_TYPES.PHONE) {
       return (
-        <Frame
-          className="w-full h-full"
-          head={
-            <>
-              <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css" rel="stylesheet" />
-              <link href="https://use.typekit.net/kfz5jhb.css" rel="stylesheet" />
-              {
-                <style dangerouslySetInnerHTML={{__html:
-                  `body * {
-                    font-family: muli, sans-serif
-                  }`
-                }}/>
-              }
-            </>
-          }>
+        <div className="w-full h-full p-2 bg-gray-200 border border-solid border-gray-300">
+          <Frame
+            className="w-full h-full bg-white rounded border border-solid border-gray-300"
+            head={
+              <>
+                <link href="/css/tailwind.css" rel="stylesheet" />
+                <link href="https://use.typekit.net/kfz5jhb.css" rel="stylesheet" />
+                {
+                  <style dangerouslySetInnerHTML={{__html:
+                    `body * {
+                      font-family: muli, sans-serif
+                    }`
+                  }}/>
+                }
+              </>
+            }>
 
-          {reduxEditorItems.map(item => <TheenBuilder key={item.id} {...templates[item.block]} />)}
-        </Frame>
+            {reduxEditorItems.map(item => <TheenBuilder key={item.id} {...templates[item.block]} />)}
+          </Frame>
+        </div>
       );
     } else {
       return null;
