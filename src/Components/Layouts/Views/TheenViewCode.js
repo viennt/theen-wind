@@ -9,7 +9,7 @@ import { getEditorItems } from '../../../Stores/reducers/editorStore';
 
 import { templates } from '../../../Templates';
 import { VIEW_TYPES } from '../../../constants';
-import { hbs } from '../../../helpers';
+import { hbs } from '../../../hbs-helpers';
 
 class TheenViewCode extends PureComponent {
   render() {

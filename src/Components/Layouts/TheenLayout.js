@@ -14,7 +14,9 @@ class TheenLayout extends PureComponent {
           <TheenNavigation/>
         </div>
         <div className="flex-1 min-w-0">
-          {children}
+          <div className="flex h-screen">
+            {children}
+          </div>
         </div>
       </div>
     );

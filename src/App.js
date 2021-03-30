@@ -3,11 +3,13 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import TheenLayout from './Components/Layouts/TheenLayout';
 import TheenDroppable from './Components/DragDrop/TheenDroppable';
+
+import TheenSideContent from './Components/Layouts/TheenSideContent';
+import TheenMainContent from './Components/Layouts/TheenMainContent';
+
 import TheenViewCode from './Components/Layouts/Views/TheenViewCode';
 import TheenViewEditor from './Components/Layouts/Views/TheenViewEditor';
 import TheenViewPreview from './Components/Layouts/Views/TheenViewPreview';
-
-import { templates } from './Templates';
 
 import './App.css';
 
@@ -16,22 +18,17 @@ class App extends PureComponent {
     return (
       <Router>
         <TheenLayout>
-          <TheenDroppable
-            renderStoreItem={block => (
-              <div className="rounded overflow-hidden">
-                <img alt="content"
-                     className="object-cover object-center h-full w-full"
-                     src={templates[block].review} />
-              </div>
-            )}
-            renderRightSide={() => (
-              <>
-                <TheenViewCode />
-                <TheenViewEditor />
-                <TheenViewPreview />
-              </>
-            )}
-          />
+          <TheenDroppable>
+            {/* SIDE CONTENT: Library, Store and Settings */}
+            <TheenSideContent />
+
+            {/* MAIN CONTENT: Editor, Code, Preview */}
+            <TheenMainContent>
+              <TheenViewCode />
+              <TheenViewEditor />
+              <TheenViewPreview />
+            </TheenMainContent>
+          </TheenDroppable>
         </TheenLayout>
       </Router>
     );

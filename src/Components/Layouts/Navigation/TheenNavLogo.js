@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { SiTailwindcss } from 'react-icons/si';
 
-import { getSettingPrimaryColorName } from '../../../Stores/reducers/settingsStore';
+import { getSettingColorName } from '../../../Stores/reducers/settingsStore';
 
 class TheenNavLogo extends PureComponent {
   render() {
@@ -17,6 +17,6 @@ class TheenNavLogo extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  reduxColorName: getSettingPrimaryColorName(state),
+  reduxColorName: getSettingColorName(state),
 })
 export default connect(mapStateToProps)(TheenNavLogo);

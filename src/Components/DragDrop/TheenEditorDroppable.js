@@ -3,16 +3,11 @@ import { Droppable } from 'react-beautiful-dnd';
 
 class TheenEditorDroppable extends PureComponent {
   render() {
-    const { className, children } = this.props;
+    const { children } = this.props;
     return (
       <Droppable droppableId="editorDroppable">
         {provided => (
-          <div
-            id="editor-droppable"
-            ref={provided.innerRef}
-            className={`w-full h-full ${className}`}
-            style={{fontFamily: 'muli, sans-serif'}}
-          >
+          <div id="editor-droppable" ref={provided.innerRef} className="w-full h-full">
             {children}
             {provided.placeholder}
           </div>

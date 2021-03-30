@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
-import { getSettingBorderRadius, updating } from '../../Stores/reducers/settingsStore';
-import TheenPickerCell from '../TheenPickerCell';
+import { getSettingBorderRadius, updating } from '../../../Stores/reducers/settingsStore';
+import TheenPickerCell from '../../TheenPickerCell';
 
 class TheenBorderPickerRounded extends PureComponent {
   render() {
-    const {activeRadius, updatingSettings} = this.props;
+    const { activeRadius, updatingSettings } = this.props;
     const classNameActiveWrapper = `border-gray-100 bg-gray-50`
     const classNameWrapper = 'grid grid-cols-7 gap-3 transition-all p-2 ' +
       `border border-solid ${classNameActiveWrapper}`;
@@ -23,7 +23,7 @@ class TheenBorderPickerRounded extends PureComponent {
         bottomLeft: `rounded-bl${rounded}`,
         bottomRight: `rounded-br${rounded}`
       };
-      updatingSettings({borders: {radius: settings}})
+      updatingSettings({ borders: { radius: settings } })
     }
 
     return (

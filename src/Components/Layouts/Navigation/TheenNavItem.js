@@ -7,10 +7,8 @@ import { VIEW_TYPES } from '../../../constants';
 
 class TheenNavItem extends PureComponent {
   render() {
-    const { label, url, icon, color = 'gray', updatingSettings, ...props } = this.props;
-    // TODO: Use this later on
+    const { title, url, icon, color = 'gray', updatingSettings, ...props } = this.props;
     const onClick = () => updatingSettings({ view: VIEW_TYPES.EDITOR })
-    // const onClick = () => {}
 
     return (
       <li className="relative flex items-center justify-center h-16 text-xl text-gray-500" {...props}>
@@ -20,7 +18,7 @@ class TheenNavItem extends PureComponent {
           activeClassName={`text-${color}-600 border-${color}-600`}
           onClick={onClick}>
           <div>{icon}</div>
-          <div className="text-xs mt-1">{label}</div>
+          <div className="text-xs mt-1">{title}</div>
         </NavLink>
       </li>
     );

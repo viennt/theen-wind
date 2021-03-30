@@ -2,18 +2,18 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
 import { getSettingView } from '../../Stores/reducers/settingsStore';
+
+import RouteWrapper from './Routes/_RouteWrapper';
 import { VIEW_TYPES } from '../../constants';
 
 class TheenMainContent extends PureComponent {
   render() {
-    const { reduxView, children } = this.props;
+    const { reduxView } = this.props;
 
-    // TODO: Use this later on
-    // if (reduxView === VIEW_TYPES.EDITOR) {
-    if (1) {
+    if (reduxView === VIEW_TYPES.EDITOR) {
       return (
         <div className="w-72 h-full overflow-y-auto">
-          {children}
+          <RouteWrapper />
         </div>
       );
     } else {

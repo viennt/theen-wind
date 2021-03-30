@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { getSettingColors, getSettingBorders } from '../Stores/reducers/settingsStore';
 
-import { hbs } from '../helpers';
+import { hbs } from '../hbs-helpers';
 
 class TheenBuilder extends PureComponent {
   render() {
@@ -18,7 +18,6 @@ class TheenBuilder extends PureComponent {
       };
     }
 
-    // className="border-b border-solid border-gray-200"
     return <div dangerouslySetInnerHTML={createMarkup()} />;
   }
 }

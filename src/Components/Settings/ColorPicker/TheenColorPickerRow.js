@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
-import { getSettingPrimaryColorName } from '../../Stores/reducers/settingsStore';
+import { getSettingColorName } from '../../../Stores/reducers/settingsStore';
 
 class TheenColorPickerRow extends PureComponent {
   shouldComponentUpdate(nextProps, nextState) {
@@ -32,6 +32,6 @@ class TheenColorPickerRow extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  reduxColorName: getSettingPrimaryColorName(state),
+  reduxColorName: getSettingColorName(state),
 })
 export default connect(mapStateToProps)(TheenColorPickerRow)

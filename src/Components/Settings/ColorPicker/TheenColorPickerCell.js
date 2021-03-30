@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
-import TheenPickerCell from '../TheenPickerCell';
+import TheenPickerCell from '../../TheenPickerCell';
 import {
-  getSettingPrimaryColorName,
-  getSettingPrimaryColorOpacity,
+  getSettingColorName,
+  getSettingColorOpacity,
   updating
-} from '../../Stores/reducers/settingsStore';
+} from '../../../Stores/reducers/settingsStore';
 
 class TheenColorPickerCell extends PureComponent {
   shouldComponentUpdate(nextProps, nextState) {
@@ -21,7 +21,7 @@ class TheenColorPickerCell extends PureComponent {
     const active = reduxColorName === color && reduxColorOpacity === opacity;
 
     const settings = { name: color, normal: opacity, lighter: opacity - 100, darker: opacity + 100 };
-    const onClick = () => updatingSettings({colors: {primary: settings}})
+    const onClick = () => updatingSettings({ colors: settings })
 
     return (
       <TheenPickerCell
@@ -38,8 +38,8 @@ class TheenColorPickerCell extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  reduxColorName: getSettingPrimaryColorName(state),
-  reduxColorOpacity: getSettingPrimaryColorOpacity(state),
+  reduxColorName: getSettingColorName(state),
+  reduxColorOpacity: getSettingColorOpacity(state),
 })
 const mapDispatchToProps = dispatch => ({
   updatingSettings: (settings) => dispatch(updating(settings)),

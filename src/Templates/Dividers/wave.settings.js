@@ -1,8 +1,5 @@
 const settings = {
   template: {
-    colors: {
-      primary: 'green'
-    }
   }
 };
 
