@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
-import { getSettingView, updating } from '../../../Stores/reducers/settingsStore';
+import { getSettingView, updating } from 'Stores/reducers/settingsStore';
 
 class TheenViewItem extends PureComponent {
   render() {

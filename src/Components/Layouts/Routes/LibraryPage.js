@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
-import TheenLibraryDroppable from '../../DragDrop/TheenLibraryDroppable';
-import TheenLibraryDraggable from '../../DragDrop/TheenLibraryDraggable';
-import { getLibraryItems } from '../../../Stores/reducers/libraryStore';
-import { templates } from '../../../Templates';
+import TheenLibraryDroppable from 'Components/DragDrop/TheenLibraryDroppable';
+import TheenLibraryDraggable from 'Components/DragDrop/TheenLibraryDraggable';
+import { getLibraryItems } from 'Stores/reducers/libraryStore';
+
+import { templates } from 'Templates';
 
 class LibraryPage extends PureComponent {
   render() {

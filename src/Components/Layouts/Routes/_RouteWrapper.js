@@ -1,13 +1,16 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { ROUTES } from '../../../constants';
+
+import { ROUTES } from 'Utils/constants';
 
 class RouteWrapper extends PureComponent {
   render() {
     return (
-      <Switch>
-        {ROUTES.map(route => <Route path={route.url}>{route.component}</Route>)}
-      </Switch>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Switch>
+          {ROUTES.map(route => <Route path={route.url}>{route.component}</Route>)}
+        </Switch>
+      </Suspense>
     );
   }
 }

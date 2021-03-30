@@ -7,7 +7,7 @@ import TheenNavItem from './TheenNavItem';
 import TheenViewItem from './TheenViewItem';
 import TheenViewSeparator from './TheenViewSeparator';
 
-import { ROUTES, VIEW_TYPES } from '../../../constants';
+import { ROUTES, VIEW_TYPES } from 'Utils/constants';
 
 class TheenNavigation extends PureComponent {
   render() {

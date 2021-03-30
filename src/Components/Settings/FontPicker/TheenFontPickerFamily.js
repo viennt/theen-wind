@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
 import { getSettingFontFamily, updating } from '../../../Stores/reducers/settingsStore';
-import { FONT_FAMILIES } from '../../../constants';
+import { FONT_FAMILIES } from 'Utils/constants';
 
 class TheenFontPickerFamily extends PureComponent {
   valSelected(e) {

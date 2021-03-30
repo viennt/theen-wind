@@ -2,10 +2,10 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { DragDropContext } from 'react-beautiful-dnd';
 
-import { getEditorItems, updating } from '../../Stores/reducers/editorStore';
-import { getLibraryItems } from '../../Stores/reducers/libraryStore';
+import { getEditorItems, updating } from 'Stores/reducers/editorStore';
+import { getLibraryItems } from 'Stores/reducers/libraryStore';
 
-import { moveDnD, reorderDnD } from '../../helpers';
+import { moveDnD, reorderDnD } from 'Utils/helpers';
 
 class TheenDroppable extends PureComponent {
   onDragEnd = result => {

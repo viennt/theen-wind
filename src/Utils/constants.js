@@ -1,9 +1,9 @@
 import React from 'react';
 import { FiShoppingBag, FiLayers, FiSettings } from 'react-icons/fi';
 
-import LibraryPage from './Components/Layouts/Routes/LibraryPage';
-import StorePage from './Components/Layouts/Routes/StorePage';
-import SettingPage from './Components/Layouts/Routes/SettingPage';
+const LibraryPage = React.lazy(() => import('Components/Layouts/Routes/LibraryPage'));
+const StorePage = React.lazy(() => import('Components/Layouts/Routes/StorePage'));
+const SettingPage = React.lazy(() => import('Components/Layouts/Routes/SettingPage'));
 
 export const ROUTES = [
   { title: 'Settings', url: '/settings', icon: <FiSettings/>, component: <SettingPage/> },
@@ -29,6 +29,7 @@ export const OPACITIES = [300, 400, 500, 600, 700];
 export const BORDER_RADIUS = []
 
 export const FONT_FAMILIES = [
+  { label: 'Default', value: '' },
   { label: 'Open Sans', value: 'Open Sans' },
   { label: 'Work Sans', value: 'Work Sans' },
   { label: 'Prompt', value: 'Prompt' },

@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Draggable } from 'react-beautiful-dnd';
 
-import { getSettingView } from '../../Stores/reducers/settingsStore';
-import { VIEW_TYPES } from '../../constants';
+import { getSettingView } from 'Stores/reducers/settingsStore';
+import { VIEW_TYPES } from 'Utils/constants';
 
 const getLibraryItemClasses = (isDragging, isDragDisabled) =>
   `${isDragging ? 'border-gray-100 shadow-2xl' : 'border-white'} ` +

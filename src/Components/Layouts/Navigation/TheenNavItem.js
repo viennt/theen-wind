@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import { updating } from '../../../Stores/reducers/settingsStore';
-import { VIEW_TYPES } from '../../../constants';
+import { updating } from 'Stores/reducers/settingsStore';
+import { VIEW_TYPES } from 'Utils/constants';
 
 class TheenNavItem extends PureComponent {
   render() {

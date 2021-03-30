@@ -4,9 +4,7 @@ import { callingApiActions, callingApiTypes } from '../utils';
 const ENTITY = 'EDITOR';
 
 export const initialState = {
-  data: [
-    { id: uuidv4(), block: 'StandardHeader02'},
-  ],
+  data: [],
 };
 
 /** SELECTORS */

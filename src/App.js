@@ -7,12 +7,6 @@ import TheenDroppable from './Components/DragDrop/TheenDroppable';
 import TheenSideContent from './Components/Layouts/TheenSideContent';
 import TheenMainContent from './Components/Layouts/TheenMainContent';
 
-import TheenViewCode from './Components/Layouts/Views/TheenViewCode';
-import TheenViewEditor from './Components/Layouts/Views/TheenViewEditor';
-import TheenViewPreview from './Components/Layouts/Views/TheenViewPreview';
-
-import './App.css';
-
 class App extends PureComponent {
   render () {
     return (
@@ -23,11 +17,7 @@ class App extends PureComponent {
             <TheenSideContent />
 
             {/* MAIN CONTENT: Editor, Code, Preview */}
-            <TheenMainContent>
-              <TheenViewCode />
-              <TheenViewEditor />
-              <TheenViewPreview />
-            </TheenMainContent>
+            <TheenMainContent />
           </TheenDroppable>
         </TheenLayout>
       </Router>

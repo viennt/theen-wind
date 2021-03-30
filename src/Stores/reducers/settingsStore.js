@@ -1,12 +1,12 @@
 import { callingApiActions, callingApiTypes } from '../utils';
-import { VIEW_TYPES } from '../../constants';
+import { VIEW_TYPES } from '../../Utils/constants';
 
 const ENTITY = 'SETTINGS';
 
 export const initialState = {
   data: {
     view: VIEW_TYPES.EDITOR, // CODE, EDITOR, DESKTOP, TABLET, PHONE
-    fontFamily: 'Muli',
+    fontFamily: '',
     borders: {
       radius: {
         topLeft: 'rounded-tl-md',

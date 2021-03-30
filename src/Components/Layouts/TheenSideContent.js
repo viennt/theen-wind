@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
-import { getSettingView } from '../../Stores/reducers/settingsStore';
+import RouteWrapper from 'Components/Layouts/Routes/_RouteWrapper';
+import { getSettingView } from 'Stores/reducers/settingsStore';
 
-import RouteWrapper from './Routes/_RouteWrapper';
-import { VIEW_TYPES } from '../../constants';
+import { VIEW_TYPES } from 'Utils/constants';
 
 class TheenMainContent extends PureComponent {
   render() {
@@ -12,7 +12,7 @@ class TheenMainContent extends PureComponent {
 
     if (reduxView === VIEW_TYPES.EDITOR) {
       return (
-        <div className="w-72 h-full overflow-y-auto">
+        <div className="hidden md:block w-72 h-full overflow-y-auto">
           <RouteWrapper />
         </div>
       );

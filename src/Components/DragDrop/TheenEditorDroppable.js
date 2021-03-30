@@ -7,7 +7,7 @@ class TheenEditorDroppable extends PureComponent {
     return (
       <Droppable droppableId="editorDroppable">
         {provided => (
-          <div id="editor-droppable" ref={provided.innerRef} className="w-full h-full">
+          <div ref={provided.innerRef} className="w-full h-full overflow-auto">
             {children}
             {provided.placeholder}
           </div>

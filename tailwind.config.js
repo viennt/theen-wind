@@ -28,9 +28,9 @@ module.exports = {
   },
   variants: {
     extend: {
-      borderRadius: ['hover'],
+      // borderRadius: ['hover'],
       fontSize: ['hover'],
-      divideColor: ['group-hover'],
+      // divideColor: ['group-hover'],
     },
   },
   plugins: [],

@@ -1,22 +1,26 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
-import TheenBuilder from '../TheenBuilder';
-import TheenEditorDraggable from '../DragDrop/TheenEditorDraggable';
+import TheenBuilder from 'Components/TheenBuilder';
+import TheenEditorDraggable from 'Components/DragDrop/TheenEditorDraggable';
 
-import { getEditorItems } from '../../Stores/reducers/editorStore';
+import { getEditorItems } from 'Stores/reducers/editorStore';
 
-import { templates } from '../../Templates';
+import { templates } from 'Templates';
 
 class TheenEditorList extends PureComponent {
   render() {
     const { reduxEditorItems } = this.props;
 
-    return reduxEditorItems.map((item, index) => (
-      <TheenEditorDraggable key={item.id} item={item} index={index}>
-        <TheenBuilder {...templates[item.block]} />
-      </TheenEditorDraggable>
-    ));
+    if (reduxEditorItems && reduxEditorItems.length) {
+      return reduxEditorItems.map((item, index) => (
+        <TheenEditorDraggable key={item.id} item={item} index={index}>
+          <TheenBuilder {...templates[item.block]} />
+        </TheenEditorDraggable>
+      ));
+    }
+
+    return <div className="flex h-full items-center justify-center">Drag & Drop</div>
   }
 }
 

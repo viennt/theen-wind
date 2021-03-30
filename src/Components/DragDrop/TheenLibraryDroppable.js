@@ -7,7 +7,7 @@ class TheenLibraryDroppable extends PureComponent {
     return (
       <Droppable droppableId="libraryDroppable" isDropDisabled>
         {provided => (
-          <div id="library-droppable" ref={provided.innerRef}>
+          <div ref={provided.innerRef}>
             {children}
             {provided.placeholder}
           </div>

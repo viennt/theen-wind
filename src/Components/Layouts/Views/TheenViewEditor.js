@@ -1,25 +1,25 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
-import TheenEditorDroppable from '../../DragDrop/TheenEditorDroppable';
-import TheenEditorList from '../../DragDrop/TheenEditorList';
+import TheenEditorDroppable from 'Components/DragDrop/TheenEditorDroppable';
+import TheenEditorList from 'Components/DragDrop/TheenEditorList';
 
-import { getSettingFontFamily, getSettingView } from '../../../Stores/reducers/settingsStore';
+import { getSettingFontFamily, getSettingView } from 'Stores/reducers/settingsStore';
 
-import { VIEW_TYPES } from '../../../constants';
+import { VIEW_TYPES } from 'Utils/constants';
 
 class TheenViewEditor extends PureComponent {
   render() {
     const { reduxView, reduxFontFamily } = this.props;
-    const displayClass = reduxView === VIEW_TYPES.EDITOR ? 'overflow-auto' : 'hidden';
-    const styles = { fontFamily: `'${reduxFontFamily}', sans-serif` };
+    const displayClass = reduxView === VIEW_TYPES.EDITOR ? 'block' : 'hidden';
+    const styles = { fontFamily: `'${reduxFontFamily}', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif` };
 
     return (
-      <TheenEditorDroppable>
-        <div className={`${displayClass}`} style={styles}>
+      <div className={`w-full h-full select-none ${displayClass}`} style={styles}>
+        <TheenEditorDroppable>
           <TheenEditorList />
-        </div>
-      </TheenEditorDroppable>
+        </TheenEditorDroppable>
+      </div>
     );
   }
 }

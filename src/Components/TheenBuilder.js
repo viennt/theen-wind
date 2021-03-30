@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { getSettingColors, getSettingBorders } from '../Stores/reducers/settingsStore';
 
-import { hbs } from '../hbs-helpers';
+import { getSettingColors, getSettingBorders } from 'Stores/reducers/settingsStore';
+
+import { hbs } from 'Utils/hbs-helpers';
 
 class TheenBuilder extends PureComponent {
   render() {
