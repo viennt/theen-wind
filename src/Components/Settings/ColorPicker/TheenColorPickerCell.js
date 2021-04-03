@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
-import TheenPickerCell from '../../TheenPickerCell';
+import TheenPickerCell from 'Components/TheenPickerCell';
 import {
   getSettingColorName,
   getSettingColorOpacity,
   updating
-} from '../../../Stores/reducers/settingsStore';
+} from 'Stores/reducers/settingsStore';
 
 class TheenColorPickerCell extends PureComponent {
   shouldComponentUpdate(nextProps, nextState) {

@@ -5,7 +5,7 @@ import { DragDropContext } from 'react-beautiful-dnd';
 import { getEditorItems, updating } from 'Stores/reducers/editorStore';
 import { getLibraryItems } from 'Stores/reducers/libraryStore';
 
-import { moveDnD, reorderDnD } from 'Utils/helpers';
+import { moveFromLibToEditor, reorderDnD } from 'Utils/helpers';
 
 class TheenDroppable extends PureComponent {
   onDragEnd = result => {
@@ -23,8 +23,7 @@ class TheenDroppable extends PureComponent {
 
     // Move from library to editor list
     } else if (source.droppableId === 'libraryDroppable') {
-      const result = moveDnD(reduxLibraryItems, reduxEditorItems, source, destination);
-      editorItems = result.editorDroppable;
+      editorItems = moveFromLibToEditor(reduxLibraryItems, reduxEditorItems, source, destination);
     }
 
     updatingEditor(editorItems)
@@ -41,6 +40,6 @@ const mapStateToProps = state => ({
   reduxLibraryItems: getLibraryItems(state),
 })
 const mapDispatchToProps = dispatch => ({
-  updatingEditor: (settings) => dispatch(updating(settings)),
+  updatingEditor: (editorItems) => dispatch(updating(editorItems)),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(TheenDroppable);

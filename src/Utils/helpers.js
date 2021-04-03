@@ -10,23 +10,21 @@ export const reorderDnD = (list, startIndex, endIndex) => {
 };
 
 // Moves an item from library to editor.
-export const moveDnD = (source, destination, droppableSource, droppableDestination) => {
+export const moveFromLibToEditor = (source, destination, droppableSource, droppableDestination) => {
   const sourceClone = Array.from(source);
   const destClone = Array.from(destination);
-  const [removed] = sourceClone.splice(droppableSource.index, 1);
+
+  const index = droppableSource.index;
+  const removed = sourceClone[index.groupIndex]?.blocks[index.itemIndex];
 
   destClone.splice(droppableDestination.index, 0, {...removed, id: uuidv4()});
-
-  return {
-    [droppableSource.droppableId]: source,
-    [droppableDestination.droppableId]: destClone
-  };
+  return destClone;
 };
 
 // Removes an item from editor.
-export const removeDnD = (source, droppableSource) => {
-  const sourceClone = Array.from(source);
-  const [] = sourceClone.splice(droppableSource.index, 1);
-
-  return sourceClone;
-};
+// export const removeDnD = (source, droppableSource) => {
+//   const sourceClone = Array.from(source);
+//   sourceClone.splice(droppableSource.index, 1);
+//
+//   return sourceClone;
+// };

@@ -1,13 +1,13 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
-import { getSettingFontFamily, updating } from '../../../Stores/reducers/settingsStore';
+import { getSettingFontFamily, updating } from 'Stores/reducers/settingsStore';
 import { FONT_FAMILIES } from 'Utils/constants';
 
 class TheenFontPickerFamily extends PureComponent {
   valSelected(e) {
     const { updatingSettings } = this.props;
-    updatingSettings({ fontFamily: e.target.value })
+    updatingSettings({ fontFamily: FONT_FAMILIES[+e.target.value] })
   }
 
   render() {
@@ -23,11 +23,16 @@ class TheenFontPickerFamily extends PureComponent {
         <div className={classNameLabel}>Font</div>
         <select
           name="fontFamily"
-          value={reduxFontFamily}
           onChange={this.valSelected.bind(this)}
           className="col-span-5 bg-gray-200 rounded px-2 py-1 text-left cursor-pointer focus:outline-none text-xs"
         >
-          {FONT_FAMILIES.map(font => <option value={font.value}>{font.label}</option>)}
+          {FONT_FAMILIES.map((font, index) =>
+            <option
+              key={index}
+              value={index}
+              selected={font.value === reduxFontFamily.value}
+            >{font.label}</option>
+          )}
         </select>
       </div>
     );

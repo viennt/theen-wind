@@ -7,18 +7,18 @@ import { VIEW_TYPES } from 'Utils/constants';
 
 class TheenNavItem extends PureComponent {
   render() {
-    const { title, url, icon, color = 'gray', updatingSettings, ...props } = this.props;
+    const { label, url, icon, color = 'gray', updatingSettings, ...props } = this.props;
     const onClick = () => updatingSettings({ view: VIEW_TYPES.EDITOR })
 
     return (
-      <li className="relative flex items-center justify-center h-16 text-xl text-gray-500" {...props}>
+      <li className="relative flex items-center justify-center w-14 sm:w-auto sm:h-16 text-xl text-gray-500" {...props}>
         <NavLink
           to={url} exact
-          className={`flex flex-col items-center justify-center hover:bg-${color}-50 transition-all h-14 w-full cursor-pointer pl-0.5 border-r-2 border-solid border-transparent`}
+          className={`flex flex-col items-center justify-center hover:bg-${color}-50 transition-all w-12 sm:w-full h-full sm:h-14 cursor-pointer pt-0.5 sm:pt-0 sm:pl-0.5 border-b sm:border-b-0 sm:border-r-2 border-solid border-transparent`}
           activeClassName={`text-${color}-600 border-${color}-600`}
           onClick={onClick}>
-          <div>{icon}</div>
-          <div className="text-xs mt-1">{title}</div>
+          <div className="">{icon}</div>
+          <div className="text-xs sm:mt-1">{label}</div>
         </NavLink>
       </li>
     );

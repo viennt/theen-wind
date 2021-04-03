@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 
 import TheenColorPickerRow from './TheenColorPickerRow'
 import TheenColorPickerCell from './TheenColorPickerCell';
-import { COLORS, OPACITIES } from '../../../Utils/constants';
+import { COLORS, OPACITIES } from 'Utils/constants';
 
 class TheenColorPicker extends PureComponent {
   render() {

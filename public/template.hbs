@@ -1,0 +1,51 @@
+<!-- STANDARD THEME / HEADER -->
+<header class="site-header text-strong relative z-30 w-full">
+  <div class="site-header-mobile bg-surface lg_hidden">
+    <div class="header-mobile h-16 header-mobile-sticky">
+      <div class="container h-full">
+        <div class="flex items-center h-full">
+          <a href="#" data-toggle="drawer"
+             class="text-strong hover_no-underline">
+            <i class="si si-menu"></i>
+          </a>
+          <div class="site-branding text-center flex-1 px-6">
+            <h1 class="site-title text-2xl leading-none mb-0">
+              <a href="https://stein.rifki.net/stein/">Stein</a>
+            </h1>
+          </div>
+          <a href="#" data-toggle="search" class="text-strong hover_no-underline ml-auto">
+            <i class="si si-search"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="site-header-desktop hidden lg_block">
+    <div class="header header-style-1 w-full header-sticky">
+      <div class="container h-full">
+        <div class="h-full flex flex-wrap items-center -mx-4 relative">
+          <div class="px-4">
+            <div class="site-branding"><h1 class="site-title text-3xl leading-none mb-0"><a
+                href="https://stein.rifki.net/stein/">Stein</a></h1></div>
+          </div>
+          <div class="flex-1 px-4 h-full">
+            <nav class="header-nav flexnav h-full">
+              <ul id="menu-header" class="menu h-full flex flex-wrap justify-center -mx-4">
+                {{#each mainMenus}}
+                <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-204">
+                  <a href="{{this.url}}" class="text-strong">{{this.label}}</a></li>
+                {{/each}}
+              </ul>
+            </nav>
+          </div>
+          <div class="text-right px-4">
+            <button class="text-strong hover_text-accent focus_outline-none" data-toggle="search"><i
+                class="si si-search"></i></button>
+            <button class="text-strong hover_text-accent focus_outline-none ml-8" data-toggle="drawer"><i
+                class="si si-menu"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
-import { getSettingBorderRadius, updating } from '../../../Stores/reducers/settingsStore';
-import TheenPickerCell from '../../TheenPickerCell';
+import { getSettingBorderRadius, updating } from 'Stores/reducers/settingsStore';
+import TheenPickerCell from 'Components/TheenPickerCell';
 
 class TheenBorderPickerRounded extends PureComponent {
   render() {

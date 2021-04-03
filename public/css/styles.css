@@ -12,13 +12,6 @@ code {
     monospace;
 }
 
-.h-full--12 {
-    height: calc(100% - theme('height.12'));
-}
-.h-full--m-4 {
-    height: calc(100% - theme('spacing.4'));
-}
-
 .ReactVirtualized__Grid.ReactVirtualized__List {
     outline: none!important;
 }

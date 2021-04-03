@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react';
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import TheenLayout from './Components/Layouts/TheenLayout';
-import TheenDroppable from './Components/DragDrop/TheenDroppable';
+import TheenLayout from 'Components/Layouts/TheenLayout';
 
-import TheenSideContent from './Components/Layouts/TheenSideContent';
-import TheenMainContent from './Components/Layouts/TheenMainContent';
+import TheenDroppable from 'Components/DragDrop/TheenDroppable';
+import TheenSideContent from 'Components/Layouts/TheenSideContent';
+import TheenMainContent from 'Components/Layouts/TheenMainContent';
 
 class App extends PureComponent {
   render () {
