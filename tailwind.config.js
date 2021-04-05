@@ -7,7 +7,7 @@ module.exports = {
       './public/index.html'
     ],
     options: {
-      safelist: [/^bg-/, /^border-/, /^text-/, /^rounded-/],
+      safelist: [/^bg-/, /^hover:bg-/, /^border-/, /^text-/, /^rounded-/, /^space-/],
     }
   },
   darkMode: false, // or 'media' or 'class'
@@ -28,9 +28,9 @@ module.exports = {
   },
   variants: {
     extend: {
-      borderRadius: ['hover'],
+      // borderRadius: ['hover'],
       fontSize: ['hover'],
-      divideColor: ['group-hover'],
+      display: ['group-hover'],
     },
   },
   plugins: [],

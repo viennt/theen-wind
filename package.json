@@ -12,8 +12,10 @@
     "react-beautiful-dnd": "^13.0.0",
     "react-dom": "^17.0.1",
     "react-frame-component": "^4.1.3",
+    "react-helmet": "^6.1.0",
     "react-icons": "^4.2.0",
     "react-redux": "^7.2.2",
+    "react-responsive": "^8.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-syntax-highlighter": "^15.4.3",
@@ -27,7 +29,12 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "build-css": "NODE_ENV=production npx tailwindcss-cli@latest build ./src/index.css -o ./public/css/tailwind.css",
+    "build-css": "npm run build-tailwindcss && npm run clean-css",
+    "build-tailwindcss": "NODE_ENV=production npx tailwindcss-cli@latest build ./src/tailwind.css -o ./public/css/tailwind.css",
+    "clean-css": "./node_modules/clean-css-cli/bin/cleancss -o ./public/css/tailwind.min.css  ./public/css/tailwind.css",
+    "build-css-first": "npm run build-tailwindcss-first && npm run clean-css-first",
+    "build-tailwindcss-first": "NODE_ENV=production npx tailwindcss-cli@latest build ./src/tailwind.css -c tailwind-first.config.js -o ./public/css/tailwind-first.css",
+    "clean-css-first": "./node_modules/clean-css-cli/bin/cleancss -o ./public/css/tailwind-first.min.css  ./public/css/tailwind-first.css",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -51,6 +58,7 @@
   "devDependencies": {
     "@tailwindcss/postcss7-compat": "^2.0.4",
     "autoprefixer": "^9.8.6",
+    "clean-css-cli": "^5.2.2",
     "craco-raw-loader": "^1.0.1",
     "postcss": "^7.0.35",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.4"

@@ -1,19 +1,27 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Suspense } from 'react';
+import { Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { getSettingView } from '../../Stores/reducers/settingsStore';
-import { VIEW_TYPES } from '../../constants';
+import TheenLoading from 'Components/TheenLoading';
+import { getSettingView } from 'Stores/reducers/settingsStore';
+
+import { VIEW_TYPES } from 'Utils/constants';
+import { ROUTES } from 'Routes';
 
 class TheenMainContent extends PureComponent {
   render() {
-    const { reduxView, children } = this.props;
+    const { reduxView } = this.props;
 
-    // TODO: Use this later on
-    // if (reduxView === VIEW_TYPES.EDITOR) {
-    if (1) {
+    if (reduxView === VIEW_TYPES.EDITOR) {
       return (
-        <div className="w-72 h-full overflow-y-auto">
-          {children}
+        <div className="w-full sm:w-72 z-10 h-full overflow-y-auto bg-gray-100 shadow-2xl sm:shadow-none">
+          <Suspense fallback={<TheenLoading />}>
+            <Switch>
+              {Object.keys(ROUTES).map(
+                route => <Route path={ROUTES[route].url}>{ROUTES[route].component}</Route>
+              )}
+            </Switch>
+          </Suspense>
         </div>
       );
     } else {

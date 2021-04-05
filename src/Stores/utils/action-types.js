@@ -8,7 +8,7 @@
  * callingApiTypes('article', 'fetch');
  * // return ['article::fetch', 'article::fetch_successfully', 'article::fetch_failed']
  */
-export const callingApiTypes = (entity: string, action: string) => {
+export const callingApiTypes = (entity, action) => {
   const DO = `${entity}::${action}`;
   const SUCCESS = `${entity}::${action}--successfully`;
   const FAILURE = `${entity}::${action}--failed`;
@@ -23,7 +23,7 @@ export const callingApiTypes = (entity: string, action: string) => {
  * paginationTypes('article');
  * // return ['article::set_limit', 'article::set_offset']
  */
-export const paginationTypes = (entity: string) => {
+export const paginationTypes = (entity) => {
   const SET_LIMIT = `${entity}::set_limit`;
   const SET_OFFSET = `${entity}::set_offset`;
   return [SET_LIMIT, SET_OFFSET];
@@ -37,7 +37,7 @@ export const paginationTypes = (entity: string) => {
  * multipleSelectTypes('article');
  * // return ['article::select', 'article::deselect', 'article::deselect_all']
  */
-export const multipleSelectTypes = (entity: string) => {
+export const multipleSelectTypes = (entity) => {
   const SELECT = `${entity}::select`;
   const DESELECT = `${entity}::deselect`;
   const DESELECT_ALL = `${entity}::deselect_all`;
