@@ -5,10 +5,10 @@ handlebars.registerHelper('ifE', function(arg1, arg2, options) {
 });
 handlebars.registerPartial(
   'color',
-  '{{value.name}}-' +
-  '{{#ifE opacity "normal"}}{{value.normal}}{{/ifE}}' +
-  '{{#ifE opacity "lighter"}}{{value.lighter}}{{/ifE}}' +
-  '{{#ifE opacity "darker"}}{{value.darker}}{{/ifE}}'
+  '{{value.name}}' +
+  '{{#ifE opacity "normal"}}-{{value.normal}}{{/ifE}}' +
+  '{{#ifE opacity "lighter"}}-{{value.lighter}}{{/ifE}}' +
+  '{{#ifE opacity "darker"}}-{{value.darker}}{{/ifE}}'
 );
 handlebars.registerPartial(
   'rounded',

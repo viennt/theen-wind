@@ -30,7 +30,7 @@ class LibraryPage extends PureComponent {
                   <div className="rounded overflow-hidden">
                     <img alt="content"
                          className="object-cover object-center h-full w-full"
-                         src={templateReviews[item.block]} />
+                         src={templateReviews[item.block] || `https://dummyimage.com/300x100/ffffff?text=${item.block}`} />
                   </div>
                 </TheenLibraryDraggable>
               ))}

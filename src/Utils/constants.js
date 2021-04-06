@@ -10,22 +10,23 @@ export const NAVIGATIONS = [
 ]
 
 export const INITIAL_LIB_ITEMS = [
-  { id: uuidv4(), name: 'Header', blocks: [
+  { id: uuidv4(), name: 'Headers', blocks: [
       { id: uuidv4(), block: 'Standard::Header01'},
       { id: uuidv4(), block: 'Standard::Header02'},
-      { id: uuidv4(), block: 'Standard::Header01'},
-      { id: uuidv4(), block: 'Standard::Header02'},
+      { id: uuidv4(), block: 'Standard::Header03'},
+      { id: uuidv4(), block: 'Standard::Header04'},
     ]},
-  { id: uuidv4(), name: 'Banner', blocks: [
+  { id: uuidv4(), name: 'Banners', blocks: [
       { id: uuidv4(), block: 'Standard::Banner01'},
-      { id: uuidv4(), block: 'Standard::Banner01'},
+      { id: uuidv4(), block: 'Standard::Banner02'},
     ]},
-  { id: uuidv4(), name: 'Content', blocks: [
-      { id: uuidv4(), block: 'Standard::Content01'},
+  { id: uuidv4(), name: 'Contents', blocks: [
       { id: uuidv4(), block: 'Standard::Content01'},
     ]},
-  { id: uuidv4(), name: 'Footer', blocks: [
-      { id: uuidv4(), block: 'Standard::Footer01'},
+  { id: uuidv4(), name: 'Call To Actions', blocks: [
+      { id: uuidv4(), block: 'Standard::CTA01'},
+    ]},
+  { id: uuidv4(), name: 'Footers', blocks: [
       { id: uuidv4(), block: 'Standard::Footer01'},
     ]},
 ];
