@@ -2,9 +2,7 @@ import { callingApiActions, callingApiTypes } from '../utils';
 
 const ENTITY = 'LIBRARY';
 
-export const initialState = {
-  data: [],
-};
+export const initialState = { data: [] };
 
 /** SELECTORS */
 export const getLibraryItems = state => state.library.data;

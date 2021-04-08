@@ -4,25 +4,29 @@
     <div class="flex flex-col sm:flex-row flex-wrap items-center space-y-8 sm:space-y-0 sm:space-x-8">
       <div class="flex-1">
         <div class="w-full sm:max-w-md lg:max-w-lg sm:pr-5 lg:pr-0 md:pb-0">
-          <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            <span class="">Beautiful Pages</span>
-            <span class="text-{{>color value=colors opacity="normal"}}">Tell Your Story!</span>
+          <h1 class="{{>group::Standard::Heading}} text-gray-900">
+            <span class="block">Beautiful Pages</span>
+            <span class="text-{{>class::color opacity="normal"}}">Tell Your Story!</span>
           </h1>
           <p class="mt-4 lg:mx-auto text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl">It's never been easier to build beautiful websites that convey your message and tell your story.</p>
           <div class="relative flex flex-col sm:flex-row sm:space-x-4 mt-10">
-            <a href="#_" class="bg-{{>color value=colors opacity="normal"}} hover:bg-{{>color value=colors opacity="lighter"}} {{>rounded radius=borders.radius}} flex items-center w-full px-6 py-3 mb-3 font-medium text-white sm:mb-0 sm:w-auto">
-              Try It Free
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-            </a>
-            <a href="#_" class="{{>rounded radius=borders.radius}} flex items-center px-6 py-3 text-gray-500 font-medium bg-gray-100 hover:bg-gray-200 hover:text-gray-600">
-              Learn More
-            </a>
+            <div class="inline-flex {{>class::rounded}}">
+              <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium {{>class::rounded}} text-white bg-{{>class::color opacity="normal"}} hover:bg-{{>class::color opacity="darker"}}">
+                Get started
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+            <div class="ml-3 inline-flex {{>class::rounded}} shadow">
+              <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium {{>class::rounded}} text-{{>class::color opacity="normal"}} bg-gray-100 hover:bg-{{>class::color}}-50">
+                Learn more
+              </a>
+            </div>
           </div>
         </div>
       </div>
       <div class="flex-1">
         <div class="w-full h-auto overflow-hidden shadow-xl rounded-xl">
-          <img src="https://picsum.photos/720/400.webp?grayscale&random=1">
+          <img src="{{>attr::imgSrc w=720 h=400}}" alt="Theen Wind">
         </div>
       </div>
     </div>

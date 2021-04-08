@@ -4,15 +4,26 @@ handlebars.registerHelper('ifE', function(arg1, arg2, options) {
   return (arg1 === arg2) ? options.fn(this) : options.inverse(this);
 });
 handlebars.registerPartial(
-  'color',
-  '{{value.name}}' +
-  '{{#ifE opacity "normal"}}-{{value.normal}}{{/ifE}}' +
-  '{{#ifE opacity "lighter"}}-{{value.lighter}}{{/ifE}}' +
-  '{{#ifE opacity "darker"}}-{{value.darker}}{{/ifE}}'
+  'class::color',
+  '{{colors.name}}' +
+  '{{#ifE opacity "normal"}}-{{colors.normal}}{{/ifE}}' +
+  '{{#ifE opacity "lighter"}}-{{colors.lighter}}{{/ifE}}' +
+  '{{#ifE opacity "darker"}}-{{colors.darker}}{{/ifE}}'
 );
 handlebars.registerPartial(
-  'rounded',
-  '{{radius.topLeft}} {{radius.topRight}} {{radius.bottomLeft}} {{radius.bottomRight}}'
+  'class::rounded',
+  '{{borders.radius.topLeft}} {{borders.radius.topRight}} ' +
+  '{{borders.radius.bottomLeft}} {{borders.radius.bottomRight}}'
+);
+handlebars.registerPartial(
+  'attr::imgSrc',
+  // 'https://picsum.photos/{{w}}/{{h}}',
+  'https://dummyimage.com/{{w}}x{{h}}'
+);
+
+handlebars.registerPartial(
+  'group::Standard::Heading',
+  'text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight'
 );
 
 export const hbs = handlebars;

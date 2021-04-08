@@ -2,31 +2,28 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { DragDropContext } from 'react-beautiful-dnd';
 
-import { getEditorItems, updating } from 'Stores/reducers/editorStore';
+import { updating, moving, reordering } from 'Stores/reducers/editorStore';
 import { getLibraryItems } from 'Stores/reducers/libraryStore';
-
-import { moveFromLibToEditor, reorderDnD } from 'Utils/helpers';
 
 class TheenDroppable extends PureComponent {
   onDragEnd = result => {
-    const { updatingEditor, reduxLibraryItems, reduxEditorItems } = this.props;
+    const { movingEditor, reorderingEditor, reduxLibraryItems } = this.props;
     const { source, destination } = result;
 
-    let editorItems = '';
     // Dropped outside the list
     if (!destination) {
       return null;
 
     // Reorder in editor list
     } else if (source.droppableId === destination.droppableId && source.droppableId === 'editorDroppable') {
-      editorItems = reorderDnD(reduxEditorItems, source.index, destination.index);
+      reorderingEditor({ startIndex: source.index, endIndex: destination.index} )
 
     // Move from library to editor list
     } else if (source.droppableId === 'libraryDroppable') {
-      editorItems = moveFromLibToEditor(reduxLibraryItems, reduxEditorItems, source, destination);
+      const sourceIndex = source.index;
+      const item = reduxLibraryItems[sourceIndex.groupIndex]?.blocks[sourceIndex.itemIndex];
+      movingEditor({ item, index: destination.index })
     }
-
-    updatingEditor(editorItems)
   };
 
   render () {
@@ -36,10 +33,11 @@ class TheenDroppable extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  reduxEditorItems: getEditorItems(state),
   reduxLibraryItems: getLibraryItems(state),
 })
 const mapDispatchToProps = dispatch => ({
   updatingEditor: (editorItems) => dispatch(updating(editorItems)),
+  movingEditor: ({ item, index }) => dispatch(moving({ item, index })),
+  reorderingEditor: ({ startIndex, endIndex }) => dispatch(reordering({ startIndex, endIndex })),
 })
 export default connect(mapStateToProps, mapDispatchToProps)(TheenDroppable);

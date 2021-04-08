@@ -1,13 +1,14 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import Select from 'react-select'
 
 import { getSettingFontFamily, updating } from 'Stores/reducers/settingsStore';
 import { FONT_FAMILIES } from 'Utils/constants';
 
 class TheenFontPickerFamily extends PureComponent {
-  valSelected(e) {
+  valSelected(selected) {
     const { updatingSettings } = this.props;
-    updatingSettings({ fontFamily: FONT_FAMILIES[+e.target.value] })
+    updatingSettings({ fontFamily: selected })
   }
 
   render() {
@@ -16,24 +17,31 @@ class TheenFontPickerFamily extends PureComponent {
     const classNameWrapper = 'grid grid-cols-7 gap-3 transition-all p-2 ' +
       `border border-solid ${classNameActiveWrapper}`;
 
-    const classNameLabel = `col-span-2 flex items-center justify-start text-black uppercase text-sm`
+    const classNameLabel = `col-span-2 flex items-center justify-start text-black uppercase text-sm`;
+
+    const customStyles = {
+      control: (provided) => ({
+        ...provided,
+        minHeight: 30,
+      }),
+      dropdownIndicator: (provided) => ({
+        ...provided,
+        padding: '0 8px',
+      }),
+    }
 
     return (
       <div className={classNameWrapper}>
         <div className={classNameLabel}>Font</div>
-        <select
+        <Select
+          size={100}
           name="fontFamily"
+          styles={customStyles}
           onChange={this.valSelected.bind(this)}
-          className="col-span-5 bg-gray-200 rounded px-2 py-1 text-left cursor-pointer focus:outline-none text-xs"
-        >
-          {FONT_FAMILIES.map((font, index) =>
-            <option
-              key={index}
-              value={index}
-              selected={font.value === reduxFontFamily.value}
-            >{font.label}</option>
-          )}
-        </select>
+          value={reduxFontFamily}
+          options={FONT_FAMILIES}
+          className="col-span-5 rounded text-left cursor-pointer focus:outline-none text-xs"
+        />
       </div>
     );
   }
