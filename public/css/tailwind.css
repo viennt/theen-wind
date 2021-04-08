@@ -6398,6 +6398,10 @@ video {
     margin-top: 0px;
   }
 
+  .sm\:mb-0 {
+    margin-bottom: 0px;
+  }
+
   .sm\:mt-1 {
     margin-top: 0.25rem;
   }
