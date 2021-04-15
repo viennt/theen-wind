@@ -1,5 +1,5 @@
 import template from './template.hbs';
-import { mainMenus } from 'Templates/constants';
+import { mainMenus } from 'Themes/constants';
 
 const settings = {
   template,

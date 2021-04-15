@@ -6,7 +6,7 @@ import TheenLibraryDraggable from 'Components/DragDrop/Library/TheenLibraryDragg
 import { getLibraryItems, updating } from 'Stores/reducers/libraryStore';
 
 import { INITIAL_LIB_ITEMS } from 'Utils/constants';
-import { templateReviews } from 'Templates/reviews';
+import { templateReviews } from 'Themes/reviews';
 
 class LibraryPage extends PureComponent {
   componentDidMount() {
@@ -21,7 +21,7 @@ class LibraryPage extends PureComponent {
       <TheenLibraryDroppable>
         <div className="px-4 relative">
           {reduxLibraryGroups.map((group, groupIndex) => (
-            <>
+            <React.Fragment key={groupIndex}>
               <div className="sticky -top-1 -mx-4 bg-white text-center px-2 py-1 mb-3 z-10">
                 {group.name}
               </div>
@@ -34,7 +34,7 @@ class LibraryPage extends PureComponent {
                   </div>
                 </TheenLibraryDraggable>
               ))}
-            </>
+            </React.Fragment>
           ))}
         </div>
       </TheenLibraryDroppable>

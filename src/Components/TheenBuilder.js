@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { getSettingColors, getSettingBorders } from 'Stores/reducers/settingsStore';
 
 import { hbs } from 'Utils/hbs-helpers';
-import { templateSettings } from 'Templates/settings';
+import { templateSettings } from 'Themes/settings';
 
 class TheenBuilder extends PureComponent {
   render() {

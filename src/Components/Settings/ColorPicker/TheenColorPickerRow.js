@@ -1,9 +1,9 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { getSettingColorName } from 'Stores/reducers/settingsStore';
 
-class TheenColorPickerRow extends PureComponent {
+class TheenColorPickerRow extends Component {
   shouldComponentUpdate(nextProps, nextState) {
     const { reduxColorName, color } = this.props;
     const oldActive = reduxColorName === color;

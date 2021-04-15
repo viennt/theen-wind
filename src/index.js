@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
+import ReactGA from 'react-ga';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -11,6 +12,8 @@ const store = configureStore();
 /* eslint-disable no-underscore-dangle */
 if (process.env.NODE_ENV === 'development') {
   import('./tailwind.css');
+} else {
+  ReactGA.initialize('G-2SDDS9D9CP');
 }
 
 ReactDOM.render(

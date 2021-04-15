@@ -21,11 +21,12 @@ class TheenViewPreview extends PureComponent {
               <link href="/css/tailwind.min.css" rel="stylesheet" />
               <link href={reduxFontFamily.href} rel="stylesheet" />
               <style dangerouslySetInnerHTML={innerHTML}/>
+              <script src="/js/alpine.min.js" defer></script>
             </>
           }>
             {reduxEditorItems.map(item => (
-              <Suspense fallback={<div/>}>
-                <TheenBuilder key={item.id} name={item.block} />
+              <Suspense key={item.id} fallback={<div/>}>
+                <TheenBuilder name={item.block} />
               </Suspense>
             ))}
         </Frame>

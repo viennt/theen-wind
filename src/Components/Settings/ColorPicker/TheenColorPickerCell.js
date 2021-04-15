@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import TheenPickerCell from 'Components/TheenPickerCell';
@@ -8,7 +8,7 @@ import {
   updating
 } from 'Stores/reducers/settingsStore';
 
-class TheenColorPickerCell extends PureComponent {
+class TheenColorPickerCell extends Component {
   shouldComponentUpdate(nextProps, nextState) {
     const { reduxColorName, reduxColorOpacity, color, opacity } = this.props;
     const oldActive = reduxColorName === color && reduxColorOpacity === opacity;
