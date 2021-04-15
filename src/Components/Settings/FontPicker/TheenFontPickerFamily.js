@@ -1,11 +1,9 @@
-import React, { PureComponent, Fragment } from 'react';
-import { Listbox, Transition } from '@headlessui/react';
-import { FiChevronDown } from 'react-icons/fi';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
+import TheenListBox from 'Components/Forms/TheenListBox';
 import { getSettingFontFamily, updating } from 'Stores/reducers/settingsStore';
 import { FONT_FAMILIES } from 'Utils/constants';
-import TheenListBox from "../../Forms/TheenListBox";
 
 class TheenFontPickerFamily extends PureComponent {
   valSelected(selected) {
