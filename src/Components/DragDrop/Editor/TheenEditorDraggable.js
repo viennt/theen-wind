@@ -3,7 +3,7 @@ import { Draggable } from 'react-beautiful-dnd';
 
 const getEditorItemClasses = isDragging =>
   `${isDragging ? 'rounded border-gray-200' : ''} ` +
-  `border-2 border-solid border-white hover:border-gray-200 overflow-hidden`;
+  `border-l-4 border-solid border-white hover:border-gray-200 overflow-hidden`;
 
 class TheenEditorDraggable extends PureComponent {
   render() {

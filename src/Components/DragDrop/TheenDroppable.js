@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { DragDropContext } from 'react-beautiful-dnd';
 
 import { updating, moving, reordering } from 'Stores/reducers/editorStore';
-import { getLibraryItems } from 'Stores/reducers/libraryStore';
+import { getThemeItems } from 'Stores/reducers/themeStore';
 
 class TheenDroppable extends PureComponent {
   onDragEnd = result => {
@@ -33,7 +33,7 @@ class TheenDroppable extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  reduxLibraryItems: getLibraryItems(state),
+  reduxLibraryItems: getThemeItems(state),
 })
 const mapDispatchToProps = dispatch => ({
   updatingEditor: (editorItems) => dispatch(updating(editorItems)),

@@ -14,13 +14,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        'blue-gray': colors.blueGray,
         orange: colors.orange,
-        amber: colors.amber,
         lime: colors.lime,
-        emerald: colors.emerald,
         teal: colors.teal,
         cyan: colors.cyan,
-        violet: colors.violet,
         fuchsia: colors.fuchsia,
         rose: colors.rose,
       },

@@ -9,6 +9,8 @@
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.1",
     "handlebars": "^4.7.7",
+    "lowdb": "^1.0.0",
+    "netlify-lambda": "^2.0.6",
     "react": "^17.0.1",
     "react-beautiful-dnd": "^13.0.0",
     "react-dom": "^17.0.1",
@@ -28,9 +30,12 @@
     "web-vitals": "^1.1.0"
   },
   "scripts": {
+    "postinstall": "netlify-lambda install",
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
+    "start:lambda": "netlify-lambda serve functions",
+    "build:lambda": "netlify-lambda build functions",
     "build-css": "npm run build-tailwindcss && npm run clean-css",
     "build-tailwindcss": "NODE_ENV=production npx tailwindcss-cli@latest build ./src/tailwind.css -o ./public/css/tailwind.css",
     "clean-css": "./node_modules/clean-css-cli/bin/cleancss -o ./public/css/tailwind.min.css  ./public/css/tailwind.css",
@@ -58,11 +63,11 @@
     ]
   },
   "devDependencies": {
-    "@tailwindcss/postcss7-compat": "^2.0.4",
+    "@tailwindcss/postcss7-compat": "^2.1.0",
     "autoprefixer": "^9.8.6",
     "clean-css-cli": "^5.2.2",
     "craco-raw-loader": "^1.0.1",
     "postcss": "^7.0.35",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.4"
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.0"
   }
 }

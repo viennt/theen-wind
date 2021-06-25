@@ -1,17 +1,17 @@
 <!-- STANDARD THEME / HEADER -->
-<section class="relative bg-white">
+<section class="relative bg-blue-gray-700">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="flex justify-between items-center border-b-2 border-gray-100 py-6 md:justify-start md:space-x-10">
+    <div class="flex justify-between items-center border-b border-gray-400 py-6 md:space-x-10">
       <div class="flex justify-start lg:w-0 lg:flex-1">
-        <a href="#_" class="flex items-center font-medium lg:w-auto lg:items-center lg:justify-center md:mb-0">
+        <a href="#_" class="flex items-center font-medium text-white lg:w-auto lg:items-center lg:justify-center md:mb-0">
           <span class="mx-auto text-4xl transform rotate-90 font-black text-{{>class::color-normal}} leading-none select-none">
             <svg stroke="currentColor" fill="currentColor" stroke-width="0" role="img" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><title></title><path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"></path></svg>
           </span>
-          <span class="mx-2 text-2xl font-bold text-{{>class::color-normal}}">Theen Wind</span>
+          <span class="mx-2 text-2xl font-medium">Theen Wind</span>
         </a>
       </div>
       <div class="-mr-2 -my-2 md:hidden">
-        <button type="button" class="bg-white {{>class::rounded}} p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100" aria-expanded="false">
+        <button type="button" class="{{>class::rounded}} p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100" aria-expanded="false">
           <span class="sr-only">Open menu</span>
           <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -21,20 +21,19 @@
       <nav class="hidden md:flex items-start space-x-10">
         {{#each mainMenus}}
           <div class="relative">
-            <a href="{{this.url}}" class="group bg-white inline-flex items-center text-base font-medium hover:text-gray-900" aria-expanded="false">
+            <a href="{{this.url}}" class="uppercase group text-gray-300 inline-flex items-center text-base font-bold hover:text-white" aria-expanded="false">
               <span>{{this.label}}</span>
             </a>
           </div>
         {{/each}}
+        <div class="relative">
+          <a href="#_" class="group text-gray-300 inline-flex items-center hover:text-white" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </a>
+        </div>
       </nav>
-      <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-        <a href="#" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
-          Sign in
-        </a>
-        <a href="#" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent {{>class::rounded}} shadow-sm text-base font-medium text-white bg-{{>class::color-normal}} hover:bg-{{>class::color-darker}}">
-          Sign up
-        </a>
-      </div>
     </div>
   </div>
 </section>

@@ -9,7 +9,7 @@ class TheenNavLogo extends PureComponent {
     const { reduxColorName } = this.props;
 
     return (
-      <li className={`flex items-center justify-center w-12 sm:w-auto sm:h-20 text-4xl text-${reduxColorName}-600`}>
+      <li className={`flex items-center justify-center w-12 sm:w-auto sm:h-20 text-4xl text-${reduxColorName}-500`}>
         <div className="transform rotate-90"><SiTailwindcss/></div>
       </li>
     );

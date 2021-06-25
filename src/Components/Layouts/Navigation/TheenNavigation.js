@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import { FiCode, FiMonitor, FiTablet, FiSmartphone, FiEye } from 'react-icons/fi';
-// FiServer
 
 import TheenNavLogo from './TheenNavLogo';
 import TheenNavItem from './TheenNavItem';

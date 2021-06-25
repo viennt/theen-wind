@@ -10,26 +10,31 @@ export const NAVIGATIONS = [
 ]
 
 export const INITIAL_LIB_ITEMS = [
-  { id: uuidv4(), name: 'Headers', blocks: [
+  { id: 'standard', label: 'Standard Theme', cover: 'https://themeforest.img.customer.envatousercontent.com/files/320542805/00_thumb.__large_preview.png?auto=compress%2Cformat&q=80&fit=crop&crop=top&max-h=8000&max-w=590&s=077026984552851d76d32c316f7f772e' },
+  { id: 'mymedi', label: 'MyMedi Theme', cover: 'https://themeforest.img.customer.envatousercontent.com/files/345203806/preview_shopify.__large_preview.png?auto=compress%2Cformat&q=80&fit=crop&crop=top&max-h=8000&max-w=590&s=3d15923970a62316eddf8d557360c94c' },
+];
+export const INITIAL_THEME_ITEMS = {
+  'standard': [
+    { id: uuidv4(), name: 'Headers', blocks: [
       { id: uuidv4(), block: 'Standard::Header01'},
       { id: uuidv4(), block: 'Standard::Header02'},
-      // { id: uuidv4(), block: 'Standard::Header03'},
       { id: uuidv4(), block: 'Standard::Header04'},
     ]},
-  { id: uuidv4(), name: 'Banners', blocks: [
+    { id: uuidv4(), name: 'Banners', blocks: [
       { id: uuidv4(), block: 'Standard::Banner01'},
       { id: uuidv4(), block: 'Standard::Banner02'},
     ]},
-  { id: uuidv4(), name: 'Contents', blocks: [
+    { id: uuidv4(), name: 'Contents', blocks: [
       { id: uuidv4(), block: 'Standard::Content01'},
     ]},
-  { id: uuidv4(), name: 'Call To Actions', blocks: [
+    { id: uuidv4(), name: 'Call To Actions', blocks: [
       { id: uuidv4(), block: 'Standard::CTA01'},
     ]},
-  { id: uuidv4(), name: 'Footers', blocks: [
+    { id: uuidv4(), name: 'Footers', blocks: [
       { id: uuidv4(), block: 'Standard::Footer01'},
     ]},
-];
+  ]
+};
 
 export const VIEW_TYPES = {
   CODE: 'code',
@@ -40,9 +45,9 @@ export const VIEW_TYPES = {
 }
 
 export const COLORS = [
-  'Red', 'Orange', 'Amber', 'Yellow',
-  'Lime', 'Green', 'Emerald', 'Teal', 'Cyan', 'Blue',
-  'Indigo', 'Violet', 'Purple', 'Fuchsia', 'Pink', 'Rose', 'Gray'
+  'Red', 'Orange', 'Yellow',
+  'Lime', 'Green', 'Teal', 'Cyan', 'Blue',
+  'Indigo', 'Purple', 'Fuchsia', 'Pink', 'Rose', 'Gray'
 ]
 export const OPACITIES = [300, 400, 500, 600, 700];
 

@@ -30,6 +30,4 @@ const mapStateToProps = state => ({
   reduxColors: getSettingColors(state),
   reduxBorders: getSettingBorders(state),
 })
-const mapDispatchToProps = () => ({
-})
-export default connect(mapStateToProps, mapDispatchToProps)(TheenBuilder);
+export default connect(mapStateToProps)(TheenBuilder);

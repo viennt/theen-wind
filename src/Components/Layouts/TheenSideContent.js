@@ -22,6 +22,7 @@ class TheenMainContent extends PureComponent {
                 <Route
                   key={ROUTES[route].url}
                   path={ROUTES[route].url}
+                  exact={ROUTES[route].exact}
                   component={withTracker(ROUTES[route].component)}
                 />
               )}

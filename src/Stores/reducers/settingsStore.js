@@ -21,7 +21,7 @@ export const initialState = {
       }
     },
     colors: {
-      name: 'gray',
+      name: 'lime',
       normal: 500,
       lighter: 400,
       darker: 600,
