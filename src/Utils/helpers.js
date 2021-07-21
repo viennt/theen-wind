@@ -28,3 +28,16 @@ export const moveFromLibToEditor = (source, destination, droppableSource, droppa
 //
 //   return sourceClone;
 // };
+
+
+export const getMenuByGroupAndBlocks = (groups, blocks) => {
+  const menuObject = {};
+  Object.keys(groups).forEach(groupKey => { menuObject[groupKey] = { name: groups[groupKey], blocks: [] }})
+  Object.keys(blocks).forEach(blockKey => {
+    const blockGroup = blockKey.split('::')[1];
+    if (menuObject[blockGroup]) {
+      menuObject[blockGroup].blocks = [...menuObject[blockGroup].blocks, { id: uuidv4(), block: blockKey }];
+    }
+  });
+  return Object.values(menuObject).map(menu => ({ id: uuidv4(), ...menu }))
+}

@@ -10,12 +10,12 @@ import { updating as updatingES } from 'Stores/reducers/editorStore';
 import { VIEW_TYPES } from 'Utils/constants';
 
 const getLibraryItemClasses = (isDragging, isDragDisabled) =>
-  `${isDragging ? 'border-gray-100 shadow-2xl' : 'border-white'} ` +
+  `${isDragging ? 'border-gray-100 shadow-xl' : 'border-white'} ` +
   `${isDragDisabled ? 'cursor-not-allowed' : 'hover:shadow-md'} ` +
-  `border border-solid bg-white sm:rounded mb-3`;
+  `shadow-sm sm:rounded mb-3`;
 const getLibraryReplaceClasses = (isDragging) =>
-  `${isDragging ? 'block' : 'hidden'} ` +
-  `border border-solid bg-white rounded mb-3`;
+  `${isDragging ? 'block filter blur-sm opacity-50' : 'hidden'} ` +
+  `rounded mb-3`;
 
 class TheenLibraryDraggable extends PureComponent {
   render() {

@@ -9,7 +9,7 @@ import { getEditorItems } from 'Stores/reducers/editorStore';
 
 import { hbs } from 'Utils/hbs-helpers';
 
-import { templateSettings } from 'Themes/settings';
+import { themes } from 'Themes';
 
 class TheenViewCode extends PureComponent {
   render() {
@@ -30,10 +30,10 @@ class TheenViewCode extends PureComponent {
         >
           {reduxEditorItems
             .map(item => {
-              const generator = hbs.compile(templateSettings[item.block].template);
+              const generator = hbs.compile(themes[item.block].template);
               return generator(
                 {
-                  ...templateSettings[item.block].props,
+                  ...themes[item.block].props,
                   colors: reduxColors,
                   borders: reduxBorders
                 }

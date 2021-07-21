@@ -25,8 +25,8 @@ class TheenMainContent extends PureComponent {
 
     return (
       <MediaQuery minWidth={640}>
-        {(isFullScreen) =>
-          <div className={`${mainClasses} bg-white border-l border-solid border-gray-100 shadow-sm`}>
+        {isFullScreen =>
+          <div className={`${mainClasses} bg-gradient-to-r from-white via-gray-100 to-white border-l border-solid border-gray-100 shadow-sm`}>
             <div className="h-full m-auto">
               <Suspense fallback={<TheenLoading/>}>
                 {isFullScreen && reduxView === VIEW_TYPES.EDITOR ? <TheenViewEditor/> : null}

@@ -19,12 +19,12 @@ class LibraryPage extends PureComponent {
         <div className="p-4 relative">
           {reduxLibraryThemes.map((theme, themeIndex) => (
             <NavLink
-              to={`/${theme.id}`} exact className="block bg-white rounded-lg overflow-hidden shadow-xl mb-4"
+              to={`/${theme.id}`} exact className="block bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md mb-4"
               key={themeIndex}>
               <img
                 alt="content"
                 className="object-cover object-center h-full w-full"
-                src={theme.cover || `https://dummyimage.com/300x100/ffffff?text=${theme.label}`}
+                src={theme.cover || '/images/themes/default-thumbnail.png'}
               />
             </NavLink>
           ))}

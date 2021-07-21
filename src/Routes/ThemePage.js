@@ -6,15 +6,14 @@ import TheenLibraryDroppable from 'Components/DragDrop/Library/TheenLibraryDropp
 import TheenLibraryDraggable from 'Components/DragDrop/Library/TheenLibraryDraggable';
 import { getThemeItems, updating } from 'Stores/reducers/themeStore';
 
-import { INITIAL_THEME_ITEMS } from 'Utils/constants';
-import { templateReviews } from 'Themes/reviews';
+import { menus, themes } from '../Themes';
 
 class ThemePage extends PureComponent {
   componentDidMount() {
     const { updatingTheme, match } = this.props;
-    const { id } = match.params;
-    if (id && INITIAL_THEME_ITEMS[id]) {
-      updatingTheme(INITIAL_THEME_ITEMS[id])
+    const { themeId } = match.params;
+    if (themeId && menus[themeId]) {
+      updatingTheme(menus[themeId])
     } else {
       updatingTheme([])
     }
@@ -36,7 +35,7 @@ class ThemePage extends PureComponent {
                   <div className="rounded overflow-hidden">
                     <img alt="content"
                          className="object-cover object-center h-full w-full"
-                         src={templateReviews[item.block] || `https://dummyimage.com/300x100/ffffff?text=${item.block}`} />
+                         src={themes[item.block].thumbnail || '/images/blocks/default-thumbnail.png'} />
                   </div>
                 </TheenLibraryDraggable>
               ))}

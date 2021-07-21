@@ -4,12 +4,12 @@ import { connect } from 'react-redux';
 import { getSettingColors, getSettingBorders } from 'Stores/reducers/settingsStore';
 
 import { hbs } from 'Utils/hbs-helpers';
-import { templateSettings } from 'Themes/settings';
+import { themes } from 'Themes';
 
 class TheenBuilder extends PureComponent {
   render() {
     const { name, reduxColors, reduxBorders } = this.props;
-    const { template, props } = templateSettings[name];
+    const { template, props } = themes[name];
 
     function createMarkup() {
       const generator = hbs.compile(template);

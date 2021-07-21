@@ -7,6 +7,6 @@ const SettingPage = React.lazy(() => import('Routes/SettingPage'));
 export const ROUTES = {
   settings: { title: 'Settings', url: '/settings', component: SettingPage },
   store: { title: 'Store', url: '/store', component: StorePage },
-  detail: { title: 'Theme', url: '/:id', component: ThemePage },
+  detail: { title: 'Theme', url: '/:themeId', component: ThemePage },
   library: { title: 'Library', url: '', component: LibraryPage, exact: true },
 }

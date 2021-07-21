@@ -15,7 +15,7 @@ class TheenMainContent extends PureComponent {
 
     if (reduxView === VIEW_TYPES.EDITOR) {
       return (
-        <div className="w-full sm:w-72 z-10 h-full overflow-y-auto bg-gray-100 shadow-2xl sm:shadow-none">
+        <div className="w-full sm:w-72 z-10 h-full overflow-y-auto select-none bg-gray-100 shadow-2xl sm:shadow-none">
           <Suspense fallback={<TheenLoading />}>
             <Switch>
               {Object.keys(ROUTES).map(route =>

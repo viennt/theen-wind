@@ -1,0 +1,36 @@
+<!-- STANDARD THEME / BANNER -->
+<section class="py-4 bg-white sm:py-10 md:px-0">
+  <div class="container items-center max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto">
+    <div class="flex flex-col sm:flex-row flex-wrap items-center space-y-8 sm:space-y-0 sm:space-x-8">
+      <div class="flex-1">
+        <div class="w-full h-auto overflow-hidden shadow-xl rounded-xl bg-gray-100">
+          <img src="{{>attr::imgSrc w=720 h=400}}" alt="Theen Wind">
+        </div>
+      </div>
+      <div class="flex-1">
+        <div class="w-full sm:max-w-md lg:max-w-lg sm:pr-5 lg:pr-0 md:pb-0">
+          <h1 class="{{>theme::Standard::Heading}} text-gray-900">
+            <span class="block">Beautiful Pages</span>
+            <span class="text-{{>class::color-normal}}">Tell Your Story!</span>
+          </h1>
+          <p class="mt-4 lg:mx-auto text-xl text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl">It's never been easier to build beautiful websites that convey your message and tell your story.</p>
+          <div class="relative flex flex-col sm:flex-row sm:space-x-4 mt-10">
+            <div class="inline-flex {{>class::rounded}} mb-3 sm:mb-0">
+              <a href="#" class="w-full sm:w-auto inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium {{>class::rounded}} text-white bg-{{>class::color-normal}} hover:bg-{{>class::color-darker}}">
+                Get started
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
+            </div>
+            <div class="w-full sm:w-auto sm:ml-3 inline-flex {{>class::rounded}} shadow">
+              <a href="#" class="w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium {{>class::rounded}} text-{{>class::color-normal}} bg-gray-100 hover:bg-{{>class::color}}-50">
+                Learn more
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
