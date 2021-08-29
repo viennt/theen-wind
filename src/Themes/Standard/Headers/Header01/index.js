@@ -1,8 +1,10 @@
 import template from './template.hbs';
 import { mainMenus } from 'Themes/constants';
 
-export default {
+const index = {
   template,
   props: { mainMenus },
   thumbnail: '/images/blocks/header-01.png',
 };
+
+export default index;

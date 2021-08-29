@@ -34,6 +34,7 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
+    "cook": "plop --plopfile generators/index.js",
     "start:lambda": "netlify-lambda serve functions",
     "build:lambda": "netlify-lambda build functions",
     "build-css": "npm run build-tailwindcss && npm run clean-css",
@@ -67,6 +68,8 @@
     "autoprefixer": "^9.8.6",
     "clean-css-cli": "^5.2.2",
     "craco-raw-loader": "^1.0.1",
+    "plop": "^2.7.4",
+    "pluralize": "^8.0.0",
     "postcss": "^7.0.35",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.0"
   }
